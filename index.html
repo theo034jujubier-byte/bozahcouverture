@@ -25,6 +25,7 @@
         .section-padding-lg { padding-top: 6rem; padding-bottom: 6rem; }
         .container-wide { max-width: 1200px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
         .orange-bullet::before { content: "■"; color: #E55302; margin-right: 0.5rem; }
+        .success-message { display: none; }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-white">
@@ -63,19 +64,26 @@
             <div class="bg-white rounded-2xl p-8 shadow-2xl relative z-10" id="devis-form">
                 <h3 class="text-2xl font-bold text-technitoit-dark mb-6 text-center">Demander mon devis gratuit</h3>
                 
+                <!-- Message de confirmation -->
+                <div id="success-message" class="hidden bg-green-50 border border-green-200 text-green-700 p-4 rounded-lg mb-4 text-center">
+                    ✅ Votre demande a bien été envoyée ! Nous vous contacterons dans les plus brefs délais.
+                </div>
+
                 <form action="https://docs.google.com/forms/d/e/1FAIpQLSdkGVi_bG_PmTjxh2bthJwXMiUrDANqY26spGcpddWwK4N_Vw/formResponse" method="POST" target="_blank" class="space-y-4" id="google-form">
-                    <!-- Champ caché pour éviter l'erreur de validation -->
+                    <!-- Champs cachés pour forcer un nouvel envoi -->
                     <input type="hidden" name="fvv" value="1" />
                     <input type="hidden" name="partialResponse" value="" />
                     <input type="hidden" name="pageHistory" value="0" />
                     <input type="hidden" name="fbzx" value="-1" />
                     <input type="hidden" name="submit" value="Envoyer" />
+                    <!-- Champ pour éviter la sauvegarde automatique -->
+                    <input type="hidden" name="draftResponse" value="" />
 
                     <div>
                         <label class="block text-xs font-bold uppercase text-gray-500 mb-2">Quel type de logement ?</label>
                         <div class="grid grid-cols-2 gap-4">
                             <label class="cursor-pointer">
-                                <input checked class="hidden peer" name="entry.2130255275" type="radio" value="Maison" />
+                                <input checked class="hidden peer" name="entry.2130255275" type="radio" value="Maison" required />
                                 <div class="border-2 border-gray-100 peer-checked:border-technitoit-orange peer-checked:bg-orange-50 p-3 text-center rounded-lg transition">
                                     <span class="text-sm font-bold">Maison</span>
                                 </div>
@@ -95,6 +103,7 @@
                     <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Email" type="email" name="entry.785950090" required />
                     <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Téléphone" type="tel" name="entry.1183417586" required />
                     <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Code Postal" type="text" name="entry.754746339" required />
+                    
                     <button class="w-full bg-technitoit-orange text-white py-4 rounded-lg font-bold uppercase shadow-lg hover:bg-orange-700 transition transform hover:-translate-y-1" type="submit">
                         Obtenir mon tarif personnalisé
                     </button>
@@ -188,6 +197,35 @@
         </div>
     </section>
     <!-- END: BenefitsSection -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('google-form');
+            const successMessage = document.getElementById('success-message');
+
+            form.addEventListener('submit', function(e) {
+                // Afficher le message de confirmation
+                successMessage.style.display = 'block';
+                successMessage.classList.remove('hidden');
+
+                // Réinitialiser le formulaire après 3 secondes (optionnel)
+                setTimeout(function() {
+                    form.reset();
+                    // Remettre le radio bouton sur "Maison"
+                    const radioMaison = document.querySelector('input[name="entry.2130255275"][value="Maison"]');
+                    if (radioMaison) radioMaison.checked = true;
+                }, 3000);
+
+                // Le formulaire s'envoie normalement vers Google Forms grâce à target="_blank"
+            });
+
+            // Cacher le message si l'utilisateur clique à nouveau sur le formulaire
+            form.addEventListener('click', function() {
+                successMessage.style.display = 'none';
+                successMessage.classList.add('hidden');
+            });
+        });
+    </script>
 
 </body>
 </html>
