@@ -95,8 +95,8 @@
                     ✅ Votre demande a bien été envoyée ! Nous vous contacterons dans les plus brefs délais.
                 </div>
 
-                <!-- L'action pointe vers l'URL de soumission (formResponse) -->
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdkGVi_bG_PmTjxh2bthJwXMiUrDANqY26spGcpddWwK4N_Vw/formResponse" method="POST" target="_blank" class="space-y-4" id="google-form">
+                <!-- NOUVEAU FORMULAIRE AVEC LE BON ID -->
+                <form action="https://docs.google.com/forms/d/1hBjeC6-qQtr3r_UC1FGVVTK5m4d5tvg_tMCHucNG2YE/formResponse" method="POST" target="_blank" class="space-y-4" id="google-form">
                     <!-- Champs cachés obligatoires pour Google Forms -->
                     <input type="hidden" name="fvv" value="1" />
                     <input type="hidden" name="partialResponse" value="" />
@@ -235,7 +235,6 @@
             const successMessage = document.getElementById('success-message');
 
             form.addEventListener('submit', function(e) {
-                // Afficher le message de confirmation
                 successMessage.style.display = 'block';
                 successMessage.classList.remove('hidden');
             });
