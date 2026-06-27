@@ -50,7 +50,7 @@
                     </div>
                     <div class="flex items-center space-x-2">
                         <svg class="w-5 h-5 text-technitoit-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <span class="text-sm font-semibold">11 experts du démoussage</span>
+                        <span class="text-sm font-semibold">11 expert du démoussage</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <svg class="w-5 h-5 text-technitoit-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -59,21 +59,22 @@
                 </div>
             </div>
 
-            <!-- Quick Quote Form -->
+            <!-- Quick Quote Form with Google Forms Integration -->
             <div class="bg-white rounded-2xl p-8 shadow-2xl relative z-10" id="devis-form">
                 <h3 class="text-2xl font-bold text-technitoit-dark mb-6 text-center">Demander mon devis gratuit</h3>
-                <form class="space-y-4">
+                
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdkGVi_bG_PmTjxh2bthJwXMiUrDANqY26spGcpddWwK4N_Vw/formResponse" method="POST" target="_blank" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold uppercase text-gray-500 mb-2">Quel type de logement ?</label>
                         <div class="grid grid-cols-2 gap-4">
                             <label class="cursor-pointer">
-                                <input checked class="hidden peer" name="type" type="radio" />
+                                <input checked class="hidden peer" name="entry.2130255275" type="radio" value="Maison" />
                                 <div class="border-2 border-gray-100 peer-checked:border-technitoit-orange peer-checked:bg-orange-50 p-3 text-center rounded-lg transition">
                                     <span class="text-sm font-bold">Maison</span>
                                 </div>
                             </label>
                             <label class="cursor-pointer">
-                                <input class="hidden peer" name="type" type="radio" />
+                                <input class="hidden peer" name="entry.2130255275" type="radio" value="Appartement" />
                                 <div class="border-2 border-gray-100 peer-checked:border-technitoit-orange peer-checked:bg-orange-50 p-3 text-center rounded-lg transition">
                                     <span class="text-sm font-bold">Appartement</span>
                                 </div>
@@ -81,12 +82,12 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Prénom" type="text" />
-                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Nom" type="text" />
+                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Prénom" type="text" name="entry.1759900553" required />
+                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Nom" type="text" name="entry.1411723343" required />
                     </div>
-                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Email" type="email" />
-                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Téléphone" type="tel" />
-                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Code Postal" type="text" />
+                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Email" type="email" name="entry.785950090" required />
+                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Téléphone" type="tel" name="entry.1183417586" required />
+                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Code Postal" type="text" name="entry.754746339" required />
                     <button class="w-full bg-technitoit-orange text-white py-4 rounded-lg font-bold uppercase shadow-lg hover:bg-orange-700 transition transform hover:-translate-y-1" type="submit">
                         Obtenir mon tarif personnalisé
                     </button>
@@ -165,8 +166,8 @@
                             <svg class="w-6 h-6 text-technitoit-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-lg text-technitoit-dark mb-1">Produit Exclusif</h4>
-                            <p class="text-gray-600 text-sm">Traitement professionnel sans javel, fabriqué en France.</p>
+                            <h4 class="font-bold text-lg text-technitoit-dark mb-1">Produit Exclusif Technimousse</h4>
+                            <p class="text-gray-600 text-sm">Traitement professionnel sans javel, fabriqué par nos propres laboratoires en France.</p>
                         </div>
                     </div>
                 </div>
