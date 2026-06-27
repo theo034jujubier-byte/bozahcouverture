@@ -94,18 +94,18 @@
                 </div>
 
                 <!-- FORMULAIRE CORRIGÉ : pas de action/method/target, géré par fetch -->
-                <form class="space-y-4" id="google-form">
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdkGVi_bG_PmTjxh2bthJwXMiUrDANqY26spGcpddWwK4N_Vw/formResponse" method="POST" target="hidden_iframe" class="space-y-4" id="google-form">
                     <div>
                         <label class="block text-xs font-bold uppercase text-gray-500 mb-2">Quel type de logement ? *</label>
                         <div class="grid grid-cols-2 gap-4">
                             <label class="cursor-pointer">
-                                <input checked class="hidden peer" name="entry.2130255275" type="radio" value="Maison" />
+                                <input checked class="hidden peer" name="entry.685170863" type="radio" value="Maison" />
                                 <div class="border-2 border-gray-100 peer-checked:border-technitoit-orange peer-checked:bg-orange-50 p-3 text-center rounded-lg transition">
                                     <span class="text-sm font-bold">Maison</span>
                                 </div>
                             </label>
                             <label class="cursor-pointer">
-                                <input class="hidden peer" name="entry.2130255275" type="radio" value="Appartement" />
+                                <input class="hidden peer" name="entry.685170863" type="radio" value="Appartement" />
                                 <div class="border-2 border-gray-100 peer-checked:border-technitoit-orange peer-checked:bg-orange-50 p-3 text-center rounded-lg transition">
                                     <span class="text-sm font-bold">Appartement</span>
                                 </div>
@@ -113,12 +113,12 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Prénom" type="text" name="entry.1759900553" required />
-                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Nom" type="text" name="entry.1411723343" required />
+                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Prénom" type="text" name="entry.1827608611" required />
+                        <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Nom" type="text" name="entry.1845058607" required />
                     </div>
-                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Email" type="email" name="entry.785950090" required />
-                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Téléphone" type="tel" name="entry.1183417586" required />
-                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Code Postal" type="text" name="entry.754746339" required />
+                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Email" type="email" name="entry.1955125957" required />
+                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Téléphone" type="tel" name="entry.999880450" required />
+                    <input class="w-full border-gray-300 rounded-lg p-3 text-sm focus:ring-technitoit-orange focus:border-technitoit-orange" placeholder="Code Postal" type="text" name="entry.781990517" required />
 
                     <button class="w-full bg-technitoit-orange text-white py-4 rounded-lg font-bold uppercase shadow-lg hover:bg-orange-700 transition transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed" type="submit" id="submit-btn">
                         Obtenir mon tarif personnalisé
@@ -219,49 +219,26 @@
     </section>
     <!-- END: BenefitsSection -->
 
+    <!-- iframe caché pour absorber la réponse Google Forms sans ouvrir de nouvel onglet -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('google-form');
             const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
             const submitBtn = document.getElementById('submit-btn');
 
-            // URL Google Forms (endpoint formResponse)
-            const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/1hBjeC6-qQtr3r_UC1FGVVTK5m4d5tvg_tMCHucNG2YE/formResponse';
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault(); // ✅ Empêche l'ouverture d'un nouvel onglet
-
-                // Désactiver le bouton pendant l'envoi
+            form.addEventListener('submit', function () {
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Envoi en cours...';
 
-                // Masquer les messages précédents
-                successMessage.classList.add('hidden');
-                errorMessage.classList.add('hidden');
-
-                const formData = new FormData(form);
-
-                // ✅ Envoi en arrière-plan avec mode no-cors (obligatoire pour Google Forms)
-                fetch(GOOGLE_FORM_URL, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors'
-                })
-                .then(function () {
-                    // Succès : afficher le message et réinitialiser
+                setTimeout(function () {
                     successMessage.classList.remove('hidden');
                     form.reset();
-                    // Remettre "Maison" coché par défaut
                     form.querySelector('input[value="Maison"]').checked = true;
-                })
-                .catch(function () {
-                    errorMessage.classList.remove('hidden');
-                })
-                .finally(function () {
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Obtenir mon tarif personnalisé';
-                });
+                }, 1500);
             });
         });
     </script>
