@@ -63,7 +63,14 @@
             <div class="bg-white rounded-2xl p-8 shadow-2xl relative z-10" id="devis-form">
                 <h3 class="text-2xl font-bold text-technitoit-dark mb-6 text-center">Demander mon devis gratuit</h3>
                 
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdkGVi_bG_PmTjxh2bthJwXMiUrDANqY26spGcpddWwK4N_Vw/formResponse" method="POST" target="_blank" class="space-y-4">
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdkGVi_bG_PmTjxh2bthJwXMiUrDANqY26spGcpddWwK4N_Vw/formResponse" method="POST" target="_blank" class="space-y-4" id="google-form">
+                    <!-- Champ caché pour éviter l'erreur de validation -->
+                    <input type="hidden" name="fvv" value="1" />
+                    <input type="hidden" name="partialResponse" value="" />
+                    <input type="hidden" name="pageHistory" value="0" />
+                    <input type="hidden" name="fbzx" value="-1" />
+                    <input type="hidden" name="submit" value="Envoyer" />
+
                     <div>
                         <label class="block text-xs font-bold uppercase text-gray-500 mb-2">Quel type de logement ?</label>
                         <div class="grid grid-cols-2 gap-4">
