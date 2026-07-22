@@ -15,11 +15,10 @@
     gtag('config', 'AW-18153327669');
 
     // Conversion APPELS TÉLÉPHONIQUES
-    // Remplacez CONVERSION_ID_APPELS par votre véritable ID de conversion
     function gtag_report_conversion_call(phoneNumber) {
       window.location.href = 'tel:' + phoneNumber;
       gtag('event', 'conversion', {
-          'send_to': 'AW-18153327669/CONVERSION_ID_APPELS',
+          'send_to': 'AW-18153327669/19iKCJiZ-NQcELWYl9BD',
           'value': 1.0,
           'currency': 'EUR'
       });
@@ -27,11 +26,10 @@
     }
 
     // Conversion WHATSAPP
-    // Remplacez CONVERSION_ID_WHATSAPP par votre véritable ID de conversion
     function gtag_report_conversion_whatsapp(whatsappUrl) {
       window.open(whatsappUrl, '_blank');
       gtag('event', 'conversion', {
-          'send_to': 'AW-18153327669/CONVERSION_ID_WHATSAPP',
+          'send_to': 'AW-18153327669/bODKCIHf_NQcELWYl9BD',
           'value': 1.0,
           'currency': 'EUR'
       });
@@ -82,7 +80,6 @@
 
   <style>
     body { font-family:'Inter',sans-serif; color:#2C2C2C; scroll-behavior:smooth; }
-    /* Hero pattern avec flou ajouté */
     .hero-pattern {
       position: relative;
       background-color: #0F172A;
@@ -96,7 +93,6 @@
       background-size: 40px 70px;
       background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
     }
-    /* Pseudo-élément flouté pour l'effet demandé */
     .hero-pattern::before {
       content: "";
       position: absolute;
@@ -170,9 +166,8 @@
   </div>
 </header>
 
-<!-- HERO : fond tuiles avec flou, rectangle devis en orange -->
+<!-- HERO -->
 <section class="hero-pattern relative pt-20 pb-36 overflow-hidden">
-  <!-- Overlay sombre pour la lisibilité -->
   <div class="absolute inset-0 bg-gradient-to-b from-navy-900/80 to-navy-900/95 z-0"></div>
   <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent z-0"></div>
   <div class="container mx-auto px-4 relative z-10 text-center">
@@ -183,7 +178,6 @@
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-white drop-shadow-sm">
       Couverture & Zinguerie <br/><span class="underline decoration-4 decoration-primary">artisan près de chez vous</span>
     </h1>
-    <!-- Rectangle DEVIS GRATUIT en orange -->
     <div class="inline-block bg-primary text-white font-bold text-lg px-6 py-2 rounded-lg shadow-md mb-6 transform -rotate-1">
       DEVIS GRATUIT SANS ENGAGEMENT
     </div>
