@@ -6,28 +6,32 @@
   <title>Bozah Couverture | Couverture & Zinguerie autour de Bordeaux jusqu'à Royan - Devis gratuit</title>
   <meta name="description" content="Bozah Couverture, expert en toiture à Bordeaux et jusqu'à Royan : ardoise, tuile, charpente, zinguerie, démoussage. Devis gratuit, intervention rapide.">
 
-  <!-- Google Ads Global Site Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18110118802"></script>
+  <!-- Google Ads Global Site Tag - NOUVEAU COMPTE -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18153327669"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-18110118802');
+    gtag('config', 'AW-18153327669');
 
+    // Conversion APPELS TÉLÉPHONIQUES
+    // Remplacez CONVERSION_ID_APPELS par votre véritable ID de conversion
     function gtag_report_conversion_call(phoneNumber) {
       window.location.href = 'tel:' + phoneNumber;
       gtag('event', 'conversion', {
-          'send_to': 'AW-18110118802/vkH4CO---qQcEJL3ybtD',
+          'send_to': 'AW-18153327669/CONVERSION_ID_APPELS',
           'value': 1.0,
           'currency': 'EUR'
       });
       return false;
     }
 
+    // Conversion WHATSAPP
+    // Remplacez CONVERSION_ID_WHATSAPP par votre véritable ID de conversion
     function gtag_report_conversion_whatsapp(whatsappUrl) {
       window.open(whatsappUrl, '_blank');
       gtag('event', 'conversion', {
-          'send_to': 'AW-18110118802/SrsCCJvI-qQcEJL3ybtD',
+          'send_to': 'AW-18153327669/CONVERSION_ID_WHATSAPP',
           'value': 1.0,
           'currency': 'EUR'
       });
